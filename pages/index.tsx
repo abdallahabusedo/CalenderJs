@@ -217,7 +217,7 @@ export default function Home() {
                 className={`bg-[#ffffff] py-2 px-3 w-fit rounded-md font-bold hover:bg-[#e07400b2] hover:rounded-full hover:text-white
                 ${
                   selectedDay === indx + 1
-                    ? "bg-[#e07400b2] rounded-full text-white"
+                    ? "bg-[#e07400] rounded-full text-white"
                     : "bg-[#ffffff]"
                 }
                 `}
@@ -267,7 +267,7 @@ export default function Home() {
         <div>
           <label id="startDate">{startDate.toDateString()}</label>
         </div>
-        <label htmlFor="endDate">endDate</label>
+        <label htmlFor="endDate">Today</label>
         <div>
           <label id="endDate">{endDate.toDateString()}</label>
         </div>

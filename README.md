@@ -1,4 +1,13 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Description 
+CalenderJS is made from scratch with Nextjs and Tailwind
+
+## ScreenShots 
+![image](https://user-images.githubusercontent.com/42722816/197360825-d418cd8a-8fe0-46f5-ab68-6fbda14e4757.png)
+![image](https://user-images.githubusercontent.com/42722816/197360834-4831c014-69f0-44af-bc94-0e2e63a2ae88.png)
+![image](https://user-images.githubusercontent.com/42722816/197360848-2e290a15-b964-4adc-acad-9fddd9501ff3.png)
+![image](https://user-images.githubusercontent.com/42722816/197360855-7e0240d4-bca6-493e-b536-7c9dfbce2953.png)
+![image](https://user-images.githubusercontent.com/42722816/197360861-7c2d575f-149c-4ad9-a57b-a78b3d56c57e.png)
+
 
 ## Getting Started
 

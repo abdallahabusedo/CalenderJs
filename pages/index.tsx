@@ -262,6 +262,7 @@ export default function Home() {
       </div>
       {/*! this section must be Deleted */}
       <div className="flex flex-col justify-center items-center">
+        <label htmlFor="startDate">this section must be Deleted</label>
         <label htmlFor="startDate">startDate</label>
         <div>
           <label id="startDate">{startDate.toDateString()}</label>

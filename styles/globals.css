@@ -5,6 +5,7 @@ html,
 body {
   padding: 0;
   margin: 0;
+  background: rgb(218, 217, 217);
   font-family: "Roboto Mono", monospace;
   font-family: "Vazirmatn", sans-serif;
 }

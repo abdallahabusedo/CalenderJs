@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 import { differenceInDays, endOfMonth, format, startOfMonth } from "date-fns";
 export default function Home() {
+  const [selectedDay, setSelectedDay] = React.useState<number>(null);
   const [selectedReq, setSelectedReq] = React.useState<
     "Yesterday" | "Last 7 days" | "Last 30 days" | "Last 6 Months"
   >("Yesterday"); // state for type of the Request on the Top
@@ -104,6 +105,7 @@ export default function Home() {
       differenceInDays(endOfMonth(new Date(a)), startOfMonth(new Date(a))) + 1
     );
     setNumOfDaysInLastMonth(differenceInDays(today, Last) - 1);
+    setSelectedDay(null);
   };
   /**
    * @param DM type of subtraction D: Days , M: Months
@@ -122,11 +124,13 @@ export default function Home() {
         break;
     }
     setSelectedReq(type);
+    setSelectedDay(null);
   };
   const handleDateSelection = (date) => {
     let newDate = new Date(my);
     newDate.setDate(date);
     setStartDate(newDate);
+    setSelectedDay(date);
   };
   return (
     <div className="flex items-center justify-center h-screen border-2 rounded-md ">
@@ -210,7 +214,13 @@ export default function Home() {
               <button
                 onClick={() => handleDateSelection(date)}
                 key={date}
-                className="bg-[#ffffff] py-2 px-3 w-fit rounded-md font-bold hover:bg-[#e07400b2] hover:rounded-full hover:text-white"
+                className={`bg-[#ffffff] py-2 px-3 w-fit rounded-md font-bold hover:bg-[#e07400b2] hover:rounded-full hover:text-white
+                ${
+                  selectedDay === indx + 1
+                    ? "bg-[#e07400b2] rounded-full text-white"
+                    : "bg-[#ffffff]"
+                }
+                `}
               >
                 {date.toLocaleString("en-US", { minimumIntegerDigits: 2 })}
               </button>

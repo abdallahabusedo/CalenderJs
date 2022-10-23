@@ -4,13 +4,15 @@ import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 import { differenceInDays, endOfMonth, format, startOfMonth } from "date-fns";
 export default function Home() {
   const [selectedDay, setSelectedDay] = React.useState<number>(null);
+  const [selectedEndDay, setSelectedEndDay] = React.useState<number>(null);
+  const [clickNum, setClickNum] = React.useState(1);
   const [selectedReq, setSelectedReq] = React.useState<
     "Yesterday" | "Last 7 days" | "Last 30 days" | "Last 6 Months"
-  >("Yesterday"); // state for type of the Request on the Top
+  >(null); // state for type of the Request on the Top
   const days = React.useMemo(
     () => ["Sun", "Mon", "Tues", "Wed", "Thu", "Fri", "Sat"],
     []
-  ); //? Days names
+  ); //? Days nsetEndDateames
   //? Set the Static Requests
   const staticRequests = React.useMemo(
     () => [
@@ -106,6 +108,7 @@ export default function Home() {
     );
     setNumOfDaysInLastMonth(differenceInDays(today, Last) - 1);
     setSelectedDay(null);
+    setSelectedEndDay(null);
   };
   /**
    * @param DM type of subtraction D: Days , M: Months
@@ -125,12 +128,36 @@ export default function Home() {
     }
     setSelectedReq(type);
     setSelectedDay(null);
+    setSelectedEndDay(null);
   };
   const handleDateSelection = (date) => {
     let newDate = new Date(my);
     newDate.setDate(date);
     setStartDate(newDate);
     setSelectedDay(date);
+    setEndDate(newDate);
+    setSelectedEndDay(date);
+    setClickNum(2);
+  };
+  const handleEndDateSelection = (date) => {
+    let newDate = new Date(my);
+    newDate.setDate(date);
+    setEndDate(newDate);
+    setSelectedEndDay(date);
+    setClickNum(1);
+  };
+
+  const handleRange = (date) => {
+    switch (clickNum) {
+      case 1:
+        handleDateSelection(date);
+        break;
+      case 2:
+        handleEndDateSelection(date);
+        break;
+      default:
+        break;
+    }
   };
   return (
     <div className="flex items-center justify-center h-screen border-2 rounded-md ">
@@ -212,7 +239,7 @@ export default function Home() {
             const date = indx + 1;
             return (
               <button
-                onClick={() => handleDateSelection(date)}
+                onClick={() => handleRange(date)}
                 key={date}
                 className={`bg-[#ffffff] py-2 px-3 w-fit rounded-md font-bold hover:bg-[#e07400b2] hover:rounded-full hover:text-white
                 ${
@@ -220,6 +247,17 @@ export default function Home() {
                     ? "bg-[#e07400] rounded-full text-white"
                     : "bg-[#ffffff]"
                 }
+                ${
+                  selectedEndDay === indx + 1
+                    ? "bg-[#e07400] rounded-full text-white"
+                    : "bg-[#ffffff]"
+                }
+                ${
+                  selectedEndDay > indx + 1 && selectedDay < indx + 1
+                    ? "bg-[#e07400aa] rounded-full text-white"
+                    : "bg-[#ffffff]"
+                }
+                
                 `}
               >
                 {date.toLocaleString("en-US", { minimumIntegerDigits: 2 })}
@@ -267,7 +305,7 @@ export default function Home() {
         <div>
           <label id="startDate">{startDate.toDateString()}</label>
         </div>
-        <label htmlFor="endDate">Today</label>
+        <label htmlFor="endDate">endDate</label>
         <div>
           <label id="endDate">{endDate.toDateString()}</label>
         </div>

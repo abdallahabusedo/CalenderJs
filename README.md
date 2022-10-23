@@ -7,6 +7,8 @@ CalenderJS is made from scratch with Nextjs and Tailwind
 ![image](https://user-images.githubusercontent.com/42722816/197360848-2e290a15-b964-4adc-acad-9fddd9501ff3.png)
 ![image](https://user-images.githubusercontent.com/42722816/197360855-7e0240d4-bca6-493e-b536-7c9dfbce2953.png)
 ![image](https://user-images.githubusercontent.com/42722816/197360861-7c2d575f-149c-4ad9-a57b-a78b3d56c57e.png)
+![image](https://user-images.githubusercontent.com/42722816/197383509-fe04b1ce-c4a9-4b9f-ac41-76ea848697de.png)
+![image](https://user-images.githubusercontent.com/42722816/197383526-a634104d-a757-4437-a2d2-2460b6136d4c.png)
 
 
 ## Getting Started
